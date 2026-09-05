@@ -1,0 +1,29 @@
+# Virtual environment
+.venv/
+
+# Environment variables
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Output files
+Approved_Rebalancing_Test_Cases.json
+Approved_Rebalancing_Test_Cases.xlsx
+
+# Word temp files
+~$*.docx
