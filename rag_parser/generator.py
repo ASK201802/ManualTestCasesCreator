@@ -19,13 +19,19 @@ Do NOT invent features, data, or behaviors not present or reasonably inferable f
 
 ## MANDATORY VALIDATIONS
 Every test suite MUST include test cases that validate:
-1. Correct calculation of units to buy/sell per security
-2. Total asset valuation remains unchanged after rebalancing
-3. All company/security names are valid before allocation
-4. Target share percentages match actual percentages post-rebalancing
+
+### Post-Rebalance Invariants
+1. Target share percentages match actual percentages post-rebalancing
+2. Deviation percentage is 0 after rebalancing
+3. Total number of shares post rebalancing should match the sum of original shares and units to buy/the deductions and units to buy from  original shares 
+
+### Input & Entity Validation
+4. All company/security names are valid before allocation
 5. Total investment amount is preserved (e.g., $100)
-6. Deviation percentage is 0 after rebalancing
-7. Unit prices remain unchanged after rebalancing
+
+### Math & Calculation Integrity
+6. Correct calculation of units to buy/sell per security
+7. Total asset valuation remains unchanged after rebalancing
 
 ## ADDITIONAL COVERAGE
 Include at least one test case for each of the following:
