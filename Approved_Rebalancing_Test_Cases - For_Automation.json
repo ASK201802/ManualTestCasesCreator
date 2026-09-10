@@ -1,0 +1,142 @@
+[
+  {
+    "id": "TC_REBAL_001",
+    "category": "Core Functional",
+    "title": "Correct Calculation of Units to Buy/Sell",
+    "preconditions": "User has input target and current percentages for each security.",
+    "steps": "1. Calculate the units to buy/sell for each security based on the target and current percentages. 2. Validate the calculations.",
+    "expected_result": "The units to buy/sell are calculated correctly for each security.",
+    "priority": "High",
+    "tags": []
+  },
+  {
+    "id": "TC_REBAL_002",
+    "category": "Core Functional",
+    "title": "Validate Target Share Percentages Post-Rebalance",
+    "preconditions": "Account ABC has been rebalanced according to the target percentages.",
+    "steps": "1. Retrieve the current share percentages for each security after rebalancing. 2. Compare the current share percentages with the target percentages.",
+    "expected_result": "The target share percentages match the actual percentages for IBM, MSFT, ORCL, AAPL, and HD.",
+    "priority": "High",
+    "tags": []
+  },
+  {
+    "id": "TC_REBAL_003",
+    "category": "Core Functional",
+    "title": "Validate Deviation Percentage Post-Rebalance",
+    "preconditions": "Account ABC has been rebalanced according to the target percentages.",
+    "steps": "1. Retrieve the deviation percentages for each security after rebalancing. 2. Check that all deviation percentages are 0.",
+    "expected_result": "The deviation percentage is 0 for all securities after rebalancing.",
+    "priority": "High",
+    "tags": []
+  },
+  {
+    "id": "TC_REBAL_004",
+    "category": "Core Functional",
+    "title": "Validate Total Number of Shares Post-Rebalance",
+    "preconditions": "Account ABC has been rebalanced according to the target percentages.",
+    "steps": "1. Calculate the total number of shares post-rebalancing. 2. Compare it with the sum of original shares and units to buy/sell.",
+    "expected_result": "The total number of shares post-rebalancing matches the sum of original shares and units to buy/sell.",
+    "priority": "High",
+    "tags": []
+  },
+  {
+    "id": "TC_REBAL_005",
+    "category": "Core Functional",
+    "title": "Validate Company Names After Allocation",
+    "preconditions": "User is preparing to allocate investments.",
+    "steps": "1. Input a list of company names for allocation. 2. Validate the company names against a list of valid securities.",
+    "expected_result": "All company names are valid after allocation.",
+    "priority": "High",
+    "tags": []
+  },
+  {
+    "id": "TC_REBAL_006",
+    "category": "Core Functional",
+    "title": "Validate Securities which are not traded have same share percentage before and after rebalance",
+    "preconditions": "User has initiated a rebalance",
+    "steps": "1. Check the total share percentage after rebalancing for the shares which are not passed for rebalanced.",
+    "expected_result": "The total share percentages for each of those securities remain unchanged .",
+    "priority": "High",
+    "tags": []
+  },
+  {
+    "id": "TC_REBAL_007",
+    "category": "Core Functional",
+    "title": "Validate Total Asset Valuation Post-Rebalance",
+    "preconditions": "Account ABC has been rebalanced.",
+    "steps": "1. Calculate the total asset valuation before and after rebalancing. 2. Compare the two values.",
+    "expected_result": "The total asset valuation remains unchanged after rebalancing.",
+    "priority": "High",
+    "tags": []
+  },
+  {
+    "id": "TC_REBAL_008",
+    "category": "Negative Scenario",
+    "title": "Validate bad rebalance request when security name is wrong",
+    "preconditions": "Attempt to rebablance with security name which is not in valid security names",
+    "steps": "Check the rebalance response",
+    "expected_result": "400-Bad Request should be recieved",
+    "priority": "Medium",
+    "tags": []
+  },
+  {
+    "id": "TC_REBAL_009",
+    "category": "System Recovery",
+    "title": "System Failure During Rebalancing",
+    "preconditions": "User has initiated a rebalance.",
+    "steps": "1. Simulate a system failure during the rebalance process. 2. Attempt to recover the system.",
+    "expected_result": "The system recovers gracefully without data loss and allows the user to retry the rebalance.",
+    "priority": "Medium",
+    "tags": []
+  },
+  {
+    "id": "TC_REBAL_010",
+    "category": "Negative Scenario",
+    "title": "Empty Input for Rebalance",
+    "preconditions": "User attempts to rebalance with no input data.",
+    "steps": "1. Submit a rebalance request with empty input fields.",
+    "expected_result": "The system returns an error indicating that input data is required.",
+    "priority": "Medium",
+    "tags": []
+  },
+  {
+    "id": "TC_REBAL_011",
+    "category": "Negative Scenario",
+    "title": "Unauthorized Access to Rebalance Functionality",
+    "preconditions": "User is not authorized to perform rebalancing.",
+    "steps": "1. Attempt to access the rebalance functionality without proper permissions.",
+    "expected_result": "The system denies access and returns an unauthorized error message.",
+    "priority": "High",
+    "tags": []
+  },
+  {
+    "id": "TC_REBAL_012",
+    "category": "Math Integrity",
+    "title": "Floating-Point Precision in Calculations",
+    "preconditions": "User inputs target percentages that require precise calculations.",
+    "steps": "1. Input target percentages that result in floating-point calculations. 2. Validate the results.",
+    "expected_result": "The calculations maintain precision and do not result in rounding errors.",
+    "priority": "Medium",
+    "tags": []
+  },
+  {
+    "id": "TC_REBAL_013",
+    "category": "Boundary",
+    "title": "Boundary Value for 0% Target Allocation",
+    "preconditions": "User sets a target allocation of 0% for a security.",
+    "steps": "1. Set the target allocation for one security to 0%. 2. Attempt to rebalance.",
+    "expected_result": "The system processes the rebalance correctly without errors.",
+    "priority": "Medium",
+    "tags": []
+  },
+  {
+    "id": "TC_REBAL_014",
+    "category": "Boundary",
+    "title": "Boundary Value for 100% Target Allocation",
+    "preconditions": "User sets a target allocation of 100% for a security.",
+    "steps": "1. Set the target allocation for one security to 100%. 2. Attempt to rebalance.",
+    "expected_result": "The system processes the rebalance correctly without errors.",
+    "priority": "Medium",
+    "tags": []
+  }
+]
