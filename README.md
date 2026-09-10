@@ -62,6 +62,11 @@ LANGSMITH_PROJECT=ManualTestCase
 uv run python main.py
 ```
 
+```power shell
+.\.venv\Scripts\python.exe main.py
+```
+
+
 ## Tech Stack
 
 - **LangGraph** — Stateful workflow with human-in-the-loop interrupt/resume

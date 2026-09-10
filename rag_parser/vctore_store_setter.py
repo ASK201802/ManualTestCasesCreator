@@ -20,6 +20,14 @@ embeddings = OpenAIEmbeddings(model=EMBEDDING_MODEL)
 
 
 def intialize_and_ingest_pinecode():
+    """Initializes the Pinecone index and ingests requirement documents.
+
+    Creates the index if it doesn't exist, loads the requirements.docx file,
+    splits it into chunks, generates embeddings, and upserts them into Pinecone.
+
+    Returns:
+        PineconeVectorStore: The vector store instance with ingested documents.
+    """
     pc = Pinecone()
     existing_indexes = [index.name for index in pc.list_indexes()]
     if INDEX_NAME not in existing_indexes:
@@ -43,6 +51,15 @@ def intialize_and_ingest_pinecode():
 
 
 def retrieve_context(query: str, k: int = 5):
+    """Retrieves relevant requirement context from Pinecone using similarity search.
+
+    Args:
+        query: The search query string to find relevant requirement chunks.
+        k: Number of top matching documents to retrieve. Defaults to 5.
+
+    Returns:
+        str: Concatenated page content of the top-k matching documents, separated by '---'.
+    """
     vector_store = PineconeVectorStore.from_existing_index(
         index_name=INDEX_NAME, embedding=embeddings
     )

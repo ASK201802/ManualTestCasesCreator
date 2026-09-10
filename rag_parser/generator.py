@@ -62,6 +62,17 @@ HUMAN_MESSAGE = """Generate manual test cases focusing on: {query}
 
 
 def generate_test_cases(state: QATestState) -> QATestState:
+    """Generates a list of structured manual test cases using GPT-4o-mini.
+
+    Constructs a prompt from the system message template and user query,
+    invokes the LLM, and parses the response into a list of test case dicts.
+
+    Args:
+        state: Current graph state containing 'query' and 'retrieved_context'.
+
+    Returns:
+        List of test case dicts, each conforming to the TestCase schema.
+    """
     prompt = ChatPromptTemplate.from_messages(
         [("system", SYSTEM_MESSAGE), ("human", HUMAN_MESSAGE)]
     )

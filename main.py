@@ -6,6 +6,12 @@ from rag_parser.vctore_store_setter import intialize_and_ingest_pinecode
 import json
 
 def main():
+    """Entry point for the test case generation workflow.
+
+    Initializes Pinecone, builds the LangGraph workflow, streams execution
+    through retrieve -> generate -> human_review -> export, and pauses for
+    user approval before exporting the final test cases to JSON.
+    """
     print("Starting Requirements Parsing")
     intialize_and_ingest_pinecode()
     graph = create_graph()
